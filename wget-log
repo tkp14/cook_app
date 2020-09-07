@@ -1,0 +1,104 @@
+--2020-09-07 09:01:01--  http://chromedriver_linux64.zip2020-08-25/
+Resolving chromedriver_linux64.zip2020-08-25 (chromedriver_linux64.zip2020-08-25)... failed: Name or service not known.
+wget: unable to resolve host address ‘chromedriver_linux64.zip2020-08-25’
+--2020-09-07 09:01:01--  ftp://23/11:485.11MB
+           => ‘11:485.11MB’
+Resolving 23 (23)... 0.0.0.23
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:03:12--  ftp://23/11:485.11MB
+  (try: 2) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:05:24--  ftp://23/11:485.11MB
+  (try: 3) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:07:38--  ftp://23/11:485.11MB
+  (try: 4) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:09:52--  ftp://23/11:485.11MB
+  (try: 5) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:12:08--  ftp://23/11:485.11MB
+  (try: 6) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:14:25--  ftp://23/11:485.11MB
+  (try: 7) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:16:41--  ftp://23/11:485.11MB
+  (try: 8) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:18:59--  ftp://23/11:485.11MB
+  (try: 9) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:21:17--  ftp://23/11:485.11MB
+  (try:10) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:23:37--  ftp://23/11:485.11MB
+  (try:11) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:25:57--  ftp://23/11:485.11MB
+  (try:12) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:28:16--  ftp://23/11:485.11MB
+  (try:13) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:30:35--  ftp://23/11:485.11MB
+  (try:14) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:32:54--  ftp://23/11:485.11MB
+  (try:15) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:35:14--  ftp://23/11:485.11MB
+  (try:16) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:37:33--  ftp://23/11:485.11MB
+  (try:17) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:39:52--  ftp://23/11:485.11MB
+  (try:18) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:42:12--  ftp://23/11:485.11MB
+  (try:19) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Retrying.
+
+--2020-09-07 09:44:31--  ftp://23/11:485.11MB
+  (try:20) => ‘11:485.11MB’
+Connecting to 23 (23)|0.0.0.23|:21... failed: Connection timed out.
+Giving up.
+
