@@ -1,3 +1,9 @@
+User.create!(name:  "吉岡 里帆",
+            email: "sample@example.com",
+            password:              "foobar",
+            password_confirmation: "foobar",
+            admin: true)
+
 User.create!(name:  "山田 太郎",
             email: "sample@example.com",
             password:              "foobar",
