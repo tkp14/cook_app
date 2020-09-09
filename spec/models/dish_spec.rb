@@ -1,4 +1,4 @@
-equire 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe Dish, type: :model do
   let!(:dish_yesterday) { create(:dish, :yesterday) }
