@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
@@ -57,6 +55,18 @@ class UsersController < ApplicationController
     else
       flash[:danger] = "他人のアカウントは削除できません"
       redirect_to root_url
+=======
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params_update)
+      flash[:success] = "プロフィールが更新されました！"
+      redirect_to @user
+    else
+      render 'edit'
     end
   end
 
@@ -73,6 +83,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :introduction, :sex)
     end
     
+    # 正しいユーザーかどうか確認
     def correct_user
       @user = User.find(params[:id])
       if !current_user?(@user)
