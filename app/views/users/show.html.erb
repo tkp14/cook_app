@@ -3,6 +3,12 @@
   <h3 class="title-profile">プロフィール</h3>
   <div class="row">
     <div class="col-md-4">
+      <span class="picture">
+        <%= link_to((image_tag @dish.picture.url), dish_path(@dish.id), class: 'dish-picture') if @dish.picture.url.present? %>
+      </span>
+    </div>
+    <div class="col-md-8">
+      <h2 class="dish-name"><%= @dish.name %></h2>
       <div class="user-picture-box">
         <%= gravatar_for @user, size: 120, cl: "gravatar user-picture" %>
       </div>
