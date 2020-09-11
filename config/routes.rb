@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'static_pages#home'
   get :about,        to: 'static_pages#about'
@@ -7,10 +9,10 @@ Rails.application.routes.draw do
   post   :login,     to: 'sessions#create'
   delete :logout,    to: 'sessions#destroy'
   resources :users do
-  member do
+    member do
       get :following, :followers
     end
   end
   resources :dishes
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships, only: %i[create destroy]
 end

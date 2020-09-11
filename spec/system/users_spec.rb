@@ -6,14 +6,14 @@ RSpec.describe 'Users', type: :system do
   let!(:user) { create(:user) }
   let!(:admin_user) { create(:user, :admin) }
   let!(:other_user) { create(:user) }
-  
-  describe "ユーザー一覧ページ" do
-    context "管理者ユーザーの場合" do
-      it "ぺージネーション、自分以外のユーザーの削除ボタンが表示されること" do
+
+  describe 'ユーザー一覧ページ' do
+    context '管理者ユーザーの場合' do
+      it 'ぺージネーション、自分以外のユーザーの削除ボタンが表示されること' do
         create_list(:user, 30)
         login_for_system(admin_user)
         visit users_path
-        expect(page).to have_css "div.pagination"
+        expect(page).to have_css 'div.pagination'
         User.paginate(page: 1).each do |u|
           expect(page).to have_link u.name, href: user_path(u)
           expect(page).to have_content "#{u.name} | 削除" unless u == admin_user
@@ -21,12 +21,12 @@ RSpec.describe 'Users', type: :system do
       end
     end
 
-    context "管理者ユーザー以外の場合" do
-      it "ぺージネーション、自分のアカウントのみ削除ボタンが表示されること" do
+    context '管理者ユーザー以外の場合' do
+      it 'ぺージネーション、自分のアカウントのみ削除ボタンが表示されること' do
         create_list(:user, 30)
         login_for_system(user)
         visit users_path
-        expect(page).to have_css "div.pagination"
+        expect(page).to have_css 'div.pagination'
         User.paginate(page: 1).each do |u|
           expect(page).to have_link u.name, href: user_path(u)
           if u == user
@@ -75,52 +75,52 @@ RSpec.describe 'Users', type: :system do
       end
     end
   end
-  
-  describe "プロフィール編集ページ" do
+
+  describe 'プロフィール編集ページ' do
     before do
       login_for_system(user)
       visit user_path(user)
-      click_link "プロフィール編集"
+      click_link 'プロフィール編集'
     end
 
-    context "ページレイアウト" do
-      it "正しいタイトルが表示されることを確認" do
+    context 'ページレイアウト' do
+      it '正しいタイトルが表示されることを確認' do
         expect(page).to have_title full_title('プロフィール編集')
       end
     end
 
-    it "有効なプロフィール更新を行うと、更新成功のフラッシュが表示されること" do
-      fill_in "ユーザー名", with: "Edit Example User"
-      fill_in "メールアドレス", with: "edit-user@example.com"
-      fill_in "自己紹介", with: "編集：初めまして"
-      fill_in "性別", with: "編集：男性"
-      click_button "更新する"
-      expect(page).to have_content "プロフィールが更新されました！"
-      expect(user.reload.name).to eq "Edit Example User"
-      expect(user.reload.email).to eq "edit-user@example.com"
-      expect(user.reload.introduction).to eq "編集：初めまして"
-      expect(user.reload.sex).to eq "編集：男性"
+    it '有効なプロフィール更新を行うと、更新成功のフラッシュが表示されること' do
+      fill_in 'ユーザー名', with: 'Edit Example User'
+      fill_in 'メールアドレス', with: 'edit-user@example.com'
+      fill_in '自己紹介', with: '編集：初めまして'
+      fill_in '性別', with: '編集：男性'
+      click_button '更新する'
+      expect(page).to have_content 'プロフィールが更新されました！'
+      expect(user.reload.name).to eq 'Edit Example User'
+      expect(user.reload.email).to eq 'edit-user@example.com'
+      expect(user.reload.introduction).to eq '編集：初めまして'
+      expect(user.reload.sex).to eq '編集：男性'
     end
 
-    it "無効なプロフィール更新をしようとすると、適切なエラーメッセージが表示されること" do
-      fill_in "ユーザー名", with: ""
-      fill_in "メールアドレス", with: ""
-      click_button "更新する"
+    it '無効なプロフィール更新をしようとすると、適切なエラーメッセージが表示されること' do
+      fill_in 'ユーザー名', with: ''
+      fill_in 'メールアドレス', with: ''
+      click_button '更新する'
       expect(page).to have_content 'ユーザー名を入力してください'
       expect(page).to have_content 'メールアドレスを入力してください'
       expect(page).to have_content 'メールアドレスは不正な値です'
-      expect(user.reload.email).not_to eq ""
+      expect(user.reload.email).not_to eq ''
     end
 
-    context "アカウント削除処理", js: true do
-      it "正しく削除できること" do
-        click_link "アカウントを削除する"
+    context 'アカウント削除処理', js: true do
+      it '正しく削除できること' do
+        click_link 'アカウントを削除する'
         page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content "自分のアカウントを削除しました"
+        expect(page).to have_content '自分のアカウントを削除しました'
       end
     end
   end
-    
+
   describe 'プロフィールページ' do
     context 'ページレイアウト' do
       before do
@@ -143,15 +143,15 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content user.sex
       end
 
-      it "プロフィール編集ページへのリンクが表示されていることを確認" do
+      it 'プロフィール編集ページへのリンクが表示されていることを確認' do
         expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
       end
-      
-      it "料理の件数が表示されていることを確認" do
+
+      it '料理の件数が表示されていることを確認' do
         expect(page).to have_content "料理 (#{user.dishes.count})"
       end
 
-      it "料理の情報が表示されていることを確認" do
+      it '料理の情報が表示されていることを確認' do
         Dish.take(5).each do |dish|
           expect(page).to have_link dish.name
           expect(page).to have_content dish.description
@@ -161,13 +161,13 @@ RSpec.describe 'Users', type: :system do
         end
       end
 
-      it "料理のページネーションが表示されていることを確認" do
-        expect(page).to have_css "div.pagination"
+      it '料理のページネーションが表示されていることを確認' do
+        expect(page).to have_css 'div.pagination'
       end
     end
-    
-    context "ユーザーのフォロー/アンフォロー処理", js: true do
-      it "ユーザーのフォロー/アンフォローができること" do
+
+    context 'ユーザーのフォロー/アンフォロー処理', js: true do
+      it 'ユーザーのフォロー/アンフォローができること' do
         login_for_system(user)
         visit user_path(other_user)
         expect(page).to have_button 'フォローする'

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :logged_in_user, only: %i[index show edit update destroy following followers]
+  before_action :correct_user, only: %i[edit update]
 
   def index
     @users = User.paginate(page: params[:page])
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params_update)
-      flash[:success] = "プロフィールが更新されました！"
+      flash[:success] = 'プロフィールが更新されました！'
       redirect_to @user
     else
       render 'edit'
@@ -47,28 +47,28 @@ class UsersController < ApplicationController
     # 管理者ユーザーの場合
     if current_user.admin?
       @user.destroy
-      flash[:success] = "ユーザーの削除に成功しました"
+      flash[:success] = 'ユーザーの削除に成功しました'
       redirect_to users_url
     # 管理者ユーザーではないが、自分のアカウントの場合
     elsif current_user?(@user)
       @user.destroy
-      flash[:success] = "自分のアカウントを削除しました"
+      flash[:success] = '自分のアカウントを削除しました'
       redirect_to root_url
     else
-      flash[:danger] = "他人のアカウントは削除できません"
+      flash[:danger] = '他人のアカウントは削除できません'
       redirect_to root_url
     end
   end
 
   def following
-    @title = "フォロー中"
+    @title = 'フォロー中'
     @user  = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
-    @title = "フォロワー"
+    @title = 'フォロワー'
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
@@ -76,22 +76,22 @@ class UsersController < ApplicationController
 
   private
 
-    # ユーザー新規作成時に許可する属性
-    def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
-    end
+  # ユーザー新規作成時に許可する属性
+  def user_params
+    params.require(:user).permit(:name, :email, :password,
+                                 :password_confirmation)
+  end
 
-    # プロフィール編集時に許可する属性
-    def user_params_update
-      params.require(:user).permit(:name, :email, :introduction, :sex)
+  # プロフィール編集時に許可する属性
+  def user_params_update
+    params.require(:user).permit(:name, :email, :introduction, :sex)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    unless current_user?(@user)
+      flash[:danger] = 'このページへはアクセスできません'
+      redirect_to(root_url)
     end
-    
-    def correct_user
-      @user = User.find(params[:id])
-      if !current_user?(@user)
-        flash[:danger] = "このページへはアクセスできません"
-        redirect_to(root_url)
-      end
-    end
+  end
 end
