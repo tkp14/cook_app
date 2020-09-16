@@ -17,6 +17,7 @@ class DishesController < ApplicationController
   def create
     @dish = current_user.dishes.build(dish_params)
     if @dish.save
+      Log.create(dish_id: @dish.id, content: @dish.cook_memo)
       flash[:success] = '料理が登録されました！'
       redirect_to dish_path(@dish)
     else
