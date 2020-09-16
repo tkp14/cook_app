@@ -303,6 +303,27 @@ h2.dish-name {
   }
 }
 
+.title-cooklog {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.dish-created-at {
+  color: grey;
+}
+
+.logs {
+  list-style: none;
+  li {
+    font-size: 16px;
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    .delete {
+      font-size: 14px;
+    }
+  }
+}
+
 .comment-create-at {
   color: grey;
 }
