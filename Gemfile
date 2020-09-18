@@ -44,6 +44,7 @@ gem 'carrierwave',             '1.2.2'
 gem 'faker'
 gem 'mini_magick',             '>= 4.9.4'
 gem 'will_paginate',           '3.1.7'
+gem 'ransack'
 
 group :production do
   gem 'fog-aws'
