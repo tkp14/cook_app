@@ -4,6 +4,10 @@ class DishesController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user, only: %i[edit update]
 
+  def index
+    @log = Log.new
+  end
+
   def show
     @dish = Dish.find(params[:id])
     @comment = Comment.new
